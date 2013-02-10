@@ -43,16 +43,14 @@ module Snap.Snaplet.ReCaptcha
        , ReCaptchaResult (..)
        ) where
 
-import Data.Lens.Common
-import Data.Lens.Template
-
 import qualified Data.ByteString as BS
 import qualified Data.ByteString.Lazy as BSL
 
 import Data.Monoid
 import Control.Applicative
-import Control.Failure
 import Control.Exception (throw, try)
+import Control.Failure
+import Control.Lens
 import Control.Monad.Trans.Resource (runResourceT)
 
 import Network.HTTP.Types (renderSimpleQuery)
@@ -66,7 +64,7 @@ data ReCaptcha
     }
 
 class HasReCaptcha b where
-  recaptchaLens :: Lens (Snaplet b) (Snaplet ReCaptcha)
+  recaptchaLens :: SnapletLens (Snaplet b) ReCaptcha
 
 type PrivateKey = BS.ByteString
 

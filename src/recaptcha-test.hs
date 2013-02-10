@@ -1,9 +1,7 @@
 {-# LANGUAGE OverloadedStrings, FlexibleInstances, MultiParamTypeClasses, TemplateHaskell #-}
 module Main where
 
-import Data.Lens.Common
-import Data.Lens.Template
-
+import           Control.Lens
 import qualified Data.ByteString             as BS
 import qualified Data.ByteString.Lazy        as BSL
 import qualified Data.Text                   as T
@@ -22,7 +20,7 @@ data ReCaptchaTest
     { _recaptcha :: Snaplet ReCaptcha
     }
 
-$(makeLenses [''ReCaptchaTest])
+makeLenses ''ReCaptchaTest
 
 instance HasReCaptcha ReCaptchaTest where
   recaptchaLens = subSnaplet recaptcha

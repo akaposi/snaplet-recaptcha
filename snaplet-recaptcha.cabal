@@ -50,13 +50,13 @@ Library
   Exposed-Modules:  Snap.Snaplet.ReCaptcha
   Default-Language: Haskell2010
   Build-Depends:    base >= 4 && < 5
-                  , data-lens
-                  , data-lens-template
+                  , lens
                   , bytestring
                   , failure
                   , conduit
                   , http-conduit
                   , http-types
+                  , resourcet
                   , snap-core
                   , snap
 
@@ -66,8 +66,7 @@ Executable          recaptcha-test
   Other-Modules:    Snap.Snaplet.ReCaptcha
   Default-Language: Haskell2010
   Build-Depends:    base >= 4 && < 5
-                  , data-lens
-                  , data-lens-template
+                  , lens
                   , bytestring
                   , text
                   , failure
@@ -79,6 +78,8 @@ Executable          recaptcha-test
                   , conduit
                   , http-conduit
                   , http-types
+                  , resourcet
+                  , blaze-markup
 
 Source-Repository   head
   type:             git
